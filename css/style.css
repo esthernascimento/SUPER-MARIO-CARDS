@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body{
+    font-family: "Outfit", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    background-image: url(../img/frontendsupermariooficial.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container-logo{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.logo{ 
+    align-items: flex-start;
+    width: 150px;
+    height: 80px;
+ 
+}
+
+.container{
+    position: relative;
+    width: 400px;
+    height: 500px;
+}
+
+.container:hover .flip{
+    transform: rotateY(180deg);
+
+
+}
+
+.flip{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: .5s;
+
+}
+
+.frente1,.tras1{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #0000004e;
+    backface-visibility: hidden;
+
+}
+
+.frente1{
+    background-image: url(../img/frentemario.png);
+    background-size: cover;
+
+}
+
+.tras1{  
+    background-image: url(../img/marioeluigi.png);
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+
+}
+
+.frente2,.tras2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #0000004e;
+    backface-visibility: hidden;
+}
+
+.frente2{
+    background-image: url(../img/frenteluigi.png);
+    background-size: cover;
+
+}
+
+.tras2{  
+    background-image: url(../img/luigi.png);
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+
+}
+
+.frente3,.tras3{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #0000004e;
+    backface-visibility: hidden;
+}
+
+.frente3{
+    background-image: url(../img/frenteyoshi.png);
+    background-size: cover;
+
+}
+
+.tras3{  
+    background-image: url(../img/marioebowser.png);
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+
+}
+
+
+
+/* Tablet (600px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flip{
+        width: 100%;
+    }
+
+    .frente1{
+        background-image: url(../img/frentemario.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+    
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+}
+
+/* Mobile (até 600px) */
+@media screen and (max-width: 600px) {
+    .container {x
+        width: 100%;
+        padding: 0;
+    }
+
+    .sidebar, .main-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+
+ 
+ 
+ 
