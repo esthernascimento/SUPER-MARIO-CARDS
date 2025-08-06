@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #1e1e2f, #2d2d3f);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #ff3e3e;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: yellow;
+}
+
+/* SECTION PERSONAGENS */
+.cards-section {
+  padding: 45px 20%; 
+  text-align: center;
+}
+
+.cards-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #ffd700;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* GRID */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px; 
+  justify-items: center;
+}
+
+/* CARD */
+.card {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #1e1e2f;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* CARD FACES */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card-front {
+  z-index: 2;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.card:hover .card-front img {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
+.card-front h2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 0.7rem 0;
+  color: white;
+  font-size: 1.4rem;
+}
+
+/* CARD BACK */
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #33334d;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-back .bg-blur {
+  position: absolute;
+  top: 0;       
+  left: 0;        
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+  border-radius: 15px; 
+}
+
+.card-back p {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+
+/* FOOTER */
+footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: auto;
+  font-size: 1rem;
+  border-top: 2px solid #333;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6);
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: #fcd000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #fff200;
+}
+
+
+/* Responsividade geral */
+@media (max-width: 1100px) {
+  .cards-section {
+    padding: 35px 4%;
+  }
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 800px) {
+  .cards-section {
+    padding: 25px 2%;
+  }
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    padding: 1rem 0.5rem;
+  }
+  header h1 {
+    font-size: 1.3rem;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+  .cards-section {
+    padding: 10px 0.5vw;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .card {
+    width: 95vw;
+    max-width: 320px;
+    height: 220px;
+  }
+  .card-inner {
+    border-radius: 10px;
+  }
+  .card-front,
+  .card-back {
+    border-radius: 10px;
+  }
+  .card-front h2 {
+    font-size: 1rem;
+    padding: 0.4rem 0;
+  }
+  .card-back p {
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+  }
+  footer {
+    padding: 1.2rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+

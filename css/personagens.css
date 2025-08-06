@@ -1,0 +1,258 @@
+/* RESET E BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #1e1e2f, #2d2d3f);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  background-color: #ff3e3e;
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-bottom: 3px solid #c02727;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* NAV */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffd700;
+}
+
+/* SECTION PERSONAGENS */
+.cards-section {
+  padding: 45px 20%; 
+  text-align: center;
+}
+
+.cards-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #ffd700;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* GRID */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px; 
+  justify-items: center;
+}
+
+/* CARD */
+.card {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #1e1e2f;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* CARD FACES */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card-front {
+  z-index: 2;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.card:hover .card-front img {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
+.card-front h2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 0.7rem 0;
+  color: white;
+  font-size: 1.4rem;
+}
+
+/* CARD BACK */
+.card-back {
+  transform: rotateY(180deg);
+  background-color: #33334d;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-back .bg-blur {
+  position: absolute;
+  top: 0;        
+  left: 0;        
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+  border-radius: 15px; 
+}
+
+.card-back p {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* FOOTER */
+footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: auto;
+  font-size: 1rem;
+  border-top: 2px solid #333;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6);
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: #fcd000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #fff200;
+}
+
+
+/* RESPONSIVO */
+@media (max-width: 1200px) {
+  .cards-section {
+    padding: 45px 10%;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-section {
+    padding: 45px 5%;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .cards-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 90%;
+    height: 320px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li a {
+    padding: 0.7rem 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .cards-section h2 {
+    font-size: 1.6rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
